@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#070a09">
+    <title>CA ĐÊM — Prototype kinh dị</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">◉</span><span>CA ĐÊM <small>GÁC ĐƯỜNG HẦM 04</small></span></div>
+        <div class="top-status"><span class="rec"><i></i> REC</span><span id="clock">00:00</span><span id="room-name">SẢNH ĐỢI</span></div>
+      </header>
+
+      <section class="view-wrap" aria-label="Khung cảnh trò chơi">
+        <canvas id="scene" aria-label="Khung cảnh góc nhìn thứ nhất"></canvas>
+        <div class="screen-noise" aria-hidden="true"></div>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="vignette" aria-hidden="true"></div>
+        <div class="hud">
+          <div class="hud-left">
+            <div class="hud-label">THỊ LỰC ĐÊM</div>
+            <div class="meter"><span id="battery-fill"></span></div>
+            <div class="hud-small"><span id="battery-text">100%</span><span id="battery-state">ỔN ĐỊNH</span></div>
+          </div>
+          <div class="hud-center"><span class="crosshair"></span><span id="aim-label">ĐANG QUÉT</span></div>
+          <div class="hud-right">
+            <div class="hud-label">LINH KIỆN</div>
+            <div class="parts"><span id="parts-count">0</span><span class="parts-total"> / 3</span></div>
+            <div class="hud-small">MÁY PHÁT ĐIỆN</div>
+          </div>
+        </div>
+        <div class="threat hidden" id="threat">
+          <div class="threat-title"><span>ĐỐI TƯỢNG PHÁT HIỆN</span><span id="threat-seconds">03.0</span></div>
+          <div class="threat-meter"><span id="threat-fill"></span></div>
+          <div class="threat-hint">LẮC ĐÈN PIN ĐỂ LÀM CHOÁNG</div>
+        </div>
+        <div class="toast hidden" id="toast" role="status"></div>
+        <div class="start-card" id="start-card">
+          <div class="eyebrow">BẢN GHI SỰ CỐ · 02:13 AM</div>
+          <h1>ĐỪNG ĐỂ NÓ<br><em>ĐẾN GẦN.</em></h1>
+          <p>Ba cầu chì bị thất lạc trong khu đường hầm. Khôi phục máy phát ở phòng máy, rồi tìm lối thoát. Thứ gì đó đang đi lại trong bóng tối.</p>
+          <button class="primary-button" id="start-button">BẮT ĐẦU CA TRỰC <span>→</span></button>
+          <div class="start-note">ÂM THANH NÊN ĐƯỢC BẬT · DÙNG TAI NGHE</div>
+        </div>
+        <div class="end-card hidden" id="end-card">
+          <div class="eyebrow" id="end-kicker">KẾT THÚC</div>
+          <h2 id="end-title">CA TRỰC KẾT THÚC</h2>
+          <p id="end-copy"></p>
+          <button class="primary-button" id="restart-button">CHƠI LẠI <span>↻</span></button>
+        </div>
+      </section>
+
+      <footer class="controls">
+        <div class="control-group">
+          <button class="control-button nv-button" id="nv-button" aria-pressed="false"><span class="button-icon">◉</span><span>NV <kbd>N</kbd></span><i class="button-led"></i></button>
+          <button class="control-button shake-button" id="shake-button"><span class="button-icon">ϟ</span><span>LẮC ĐÈN <kbd>SPACE</kbd></span><span class="shake-meter"><i id="shake-fill"></i></span></button>
+          <button class="control-button" id="look-help"><span class="button-icon">⌖</span><span>NHÌN QUANH</span></button>
+        </div>
+        <div class="navigation" id="navigation" aria-label="Đi đến phòng kế tiếp"></div>
+        <div class="footnote" id="footnote">BẬT NV ĐỂ NHÌN THẤY · GIỮ CHUỘT VÀ KÉO ĐỂ QUAN SÁT</div>
+      </footer>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
